@@ -9,7 +9,7 @@ const OpenAi = require("./openAiGet");
 router.get("/openAiGet",  async (req, res) => {
     let openai = new OpenAi();
     
-    // Fixing the params of zipcode and tempMetric for an example GET request
+    // Fixing the params of prompt, n, and size for an example GET request
     let openAiData = await openai.generateImage(prompt, n, size);
 
     // Content that will be sent will be a prettified json

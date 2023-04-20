@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Use API routes from the api folder
-const apis = require("./api/router");
+const apis = require("./api");
 app.use("/api", apis);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
