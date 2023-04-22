@@ -17,7 +17,7 @@ const Navbar = () => {
     await signOut(Auth)
     navigator("/")
   }
-  console.log(user)
+ 
 
   return (
      <div>
@@ -26,7 +26,7 @@ const Navbar = () => {
           <a href="/" class="logo">Imagini<span>GPT</span></a>
            <div className="header-right">
            <MdDarkMode className='darkmode-icon'/>
-             { user && <Link className='gap' to={"/generate"}>Generate</Link>}
+             
             {user? 
             <>
               <img src={user.photoURL} className='user-photo' alt="User Profile Picture" />
@@ -34,7 +34,8 @@ const Navbar = () => {
               <FiLogOut className='logout' onClick={logOut}/>  
             </>
             : 
-              <Link className='gap' to={"/login"}>Login</Link>}   
+              <Link className='gap' to={"/login"}>Login</Link>}  
+              { user && <Link className='gap' to={"/generate"}>Generate</Link>} 
                 <Link className='gap' to={"/home"}>Home</Link>
               <Link className="active" to={'/about'}>About</Link>
             </div>

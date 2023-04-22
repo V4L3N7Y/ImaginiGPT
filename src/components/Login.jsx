@@ -17,7 +17,7 @@ function Login() {
   return (
     <div className='container'>
 
-      <h1>Login</h1>
+      <h1>Autentificare</h1>
       <button onClick={signIn} class="button-17" role="button">Sign In With Google</button>
 
     </div>
