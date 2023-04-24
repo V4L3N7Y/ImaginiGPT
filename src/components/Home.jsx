@@ -52,6 +52,7 @@ const Home = () => {
           type="text"
           name="text"
           placeholder="Cauta..."
+          className="form-field-input"
           value={searchText}
           handleChange={handleSearchChange}
         />
