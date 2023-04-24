@@ -15,6 +15,7 @@ const ImageGenerationForm = () => {
   const [output, setOutput] = useState(null);
   const [prompt, setPrompt] = useState("");
   const [imageFile, setImageFile] = useState(null);
+  const [failLoading, setFailLoading] = useState(false)
 
   const [user] = useAuthState(Auth);
   const postRef = collection(db, "posts");
@@ -54,6 +55,8 @@ const ImageGenerationForm = () => {
     const translationData = await translationResponse.json();
     const translatedText = translationData.responseData.translatedText;
     console.log(translatedText);
+    console.log(translationData.responseData);
+
     setPrompt(translatedText);
 
     // cheama generatorul de imagini
@@ -70,6 +73,8 @@ const ImageGenerationForm = () => {
     );
 
     if (!response.ok) {
+      setFailLoading(true);
+      setLoading(false);
       throw new Error("Failed to generate image");
     }
 
@@ -122,6 +127,13 @@ const ImageGenerationForm = () => {
           </p>
           <p>
             Asteptati...
+          </p>
+        </div>
+      )}
+      {failLoading && (
+        <div className="fail-loading">
+          <p>
+            Imaginea nu s-a putut genera :(
           </p>
         </div>
       )}
