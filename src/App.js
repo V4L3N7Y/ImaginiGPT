@@ -6,12 +6,17 @@ import './App.css';
 import About from './components/About';
 import Component  from './components/Component';
 
+
+
 function App() {
+
+
   return (
-    <div className='App'>
+    <div className='App '>
     
     <BrowserRouter>
     <Navbar/>
+    <main>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/home' element={<Home/>}/>
@@ -19,6 +24,7 @@ function App() {
         <Route path='/about' element={<About/>}/>  
         <Route path='/generate' element={<Component/>}/>  
       </Routes>
+    </main> 
     </BrowserRouter>
     
     </div>
