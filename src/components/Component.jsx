@@ -53,7 +53,6 @@ const ImageGenerationForm = () => {
     );
     const translationData = await translationResponse.json();
     const translatedText = translationData.responseData.translatedText;
-
     console.log(translatedText);
     setPrompt(translatedText);
 
@@ -120,6 +119,9 @@ const ImageGenerationForm = () => {
               wrapperStyle
               wrapperClass
             />
+          </p>
+          <p>
+            Asteptati...
           </p>
         </div>
       )}

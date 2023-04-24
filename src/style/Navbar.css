@@ -1,6 +1,7 @@
 /* Style the header with a grey background and some padding */
 .header {
-  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
   background-color: rgb(24, 24, 24);
   padding: 20px 10px;
 }
