@@ -57,7 +57,7 @@ const ImageGenerationForm = () => {
     console.log(translatedText);
     setPrompt(translatedText);
 
-    // cheama generatorul de imagini
+    // trimite valoare inputului in api-ul generator de imagini
     const response = await fetch(
       "https://api-inference.huggingface.co/models/CompVis/stable-diffusion-v1-4",
       {
@@ -93,16 +93,16 @@ const ImageGenerationForm = () => {
     <div className="imageGPT container">
       <div className="container">
         <h1>Încurajează-ți creativitatea!</h1>
-        <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">
+        <p>
           Răsfoiți printr-o colecție de imagini imaginative și uimitoare din
           punct de vedere vizual generate de DALL-E AI
         </p>
       </div>
-      <form className="generate-form mt-2" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="input"
-          placeholder="type your prompt here..."
+          placeholder="Introduceti descrierea aici..."
         />
         <button type="submit" className="button">
           Generate
