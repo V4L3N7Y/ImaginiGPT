@@ -29,8 +29,8 @@
 
 /* Change the background color on mouse-over */
 .header a:hover {
-  background-color: rgba(255, 255, 255, 0.119);
-  box-shadow: rgba(56, 54, 54, 0.329) 0px 50px 100px -20px, rgba(255, 255, 255, 0.3) 0px 30px 60px -30px, rgba(255, 255, 255, 0.35) 0px -2px 6px 0px inset;
+  background-color: rgba(201, 188, 188, 0.192);
+  box-shadow: rgba(39, 38, 38, 0.329) 0px 50px 100px -20px, rgba(116, 113, 113, 0.3) 0px 30px 60px -30px, rgba(58, 52, 52, 0.35) 0px -2px 6px 0px inset;
 }
 
 /* Style the active/current link*/

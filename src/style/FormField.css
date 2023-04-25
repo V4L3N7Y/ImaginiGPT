@@ -5,8 +5,8 @@ input {
     border-bottom: 1.35px solid rgb(57, 49, 49);
     font-size: 1.25rem;
     cursor:pointer;
-    padding: 15px 0px 10px 25px;
-    width: 100%;
+    padding: 15px 0px 10px 15px;
+    width: 94%;
     font-family: Alegreya;
     font-weight: 550;
   }
@@ -29,7 +29,7 @@ input {
     display: flex;
     align-items: center;
     margin: 15px 0px 15px 0px;
-    width: 88%;
+    width: 89%;
     padding: 0px 40px 0px 40px;
   }
   

@@ -42,8 +42,12 @@ const Home = () => {
   return (
     <section>
       <div className="home-main-description">
+        <div className="home-text-logo">
         <h1>Vitrina de imagini generate</h1>
+        </div>
+        <div className="home-prerequisite">
         <p>Răsfoiți printr-o colecție de imagini imaginative și uimitoare din punct de vedere vizual generate de DALL-E AI</p>
+        </div>
       </div>
         <FormField
           labelName="Cautare imagini generate"
