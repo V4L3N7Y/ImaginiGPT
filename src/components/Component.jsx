@@ -21,15 +21,24 @@ const ImageGenerationForm = () => {
   const [user] = useAuthState(Auth);
   const postRef = collection(db, "posts");
 
+
+
   const uploadImage = async () => {
     if (imageFile !== null) {
       const imageRef = ref(storage, `images/${imageFile.name + v4()}`);
       uploadBytes(imageRef, imageFile)
         .then(() => {
-          getDownloadURL(imageRef).then((url) => {
-            if (prompt !== "") {
+          getDownloadURL(imageRef).then(async (url) => {
+              if (prompt !== "") {
+              /// traduce din engleza in romana si o trimite in firestore database bcz generatorul de imagini accepta doar limba engleza ca prompt 
+              /// ba ....sa bag si api-ul mymemori translate in fisierul .env ? ca am vizibil si email-ul sa moara cibilan...dar daca fac asta nu pot sa pun parametru prompt ... ori....dar nush ...vezi tu ce si cum
+              const retranslationResponse = await fetch(
+                `https://api.mymemory.translated.net/get?q=${prompt}&langpair=en|ro&de=valimihai154@yahoo.com`
+              );
+              const retranslationData = await retranslationResponse.json();
+              const retranslatedText = retranslationData.responseData.translatedText.toLowerCase();
               addDoc(postRef, {
-                prompt: prompt,
+                prompt: retranslatedText,
                 image: url,
                 user: user.displayName,
                 logo: user.photoURL,
@@ -52,10 +61,10 @@ const ImageGenerationForm = () => {
       
     // fetch api cu tare si pe dincolo
     const translationResponse = await fetch(
-      `https://api.mymemory.translated.net/get?q=${input}&langpair=ro-RO|en-GB`
+      `https://api.mymemory.translated.net/get?q=${input}&langpair=ro|en&de=valimihai154@yahoo.com`
     );
     const translationData = await translationResponse.json();
-    const translatedText = translationData.responseData.translatedText;
+    const translatedText = translationData.responseData.translatedText.toLowerCase();
     console.log(translatedText);
     console.log(translationData.responseData);
 
@@ -70,7 +79,7 @@ const ImageGenerationForm = () => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${API_TOKEN}`,
         },
-        body: JSON.stringify({ inputs: translatedText }),
+        body: JSON.stringify({ inputs: "man" }),
       }
     );
 
@@ -84,7 +93,9 @@ const ImageGenerationForm = () => {
     setOutput(URL.createObjectURL(blob));
     setImageFile(new File([blob], "art.png", { type: "image/png" }));
     setLoading(false);
+    console.log(blob)
     }
+    
   };
 
   const handleDownload = () => {

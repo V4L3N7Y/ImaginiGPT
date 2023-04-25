@@ -7,6 +7,8 @@ import { Audio } from "react-loader-spinner";
 import FormField from "./FormField";
 import '../style/Home.css';
 
+
+
 const Home = () => {
   const [posts, setPost] = useState([])
   const [loading, setLoading] = useState(true);
@@ -14,7 +16,7 @@ const Home = () => {
 
   const [searchText, setSearchText] = useState('');
   const [searchTimeout, setSearchTimeout] = useState(null);
-  const [searchedResults, setSearchedResults] = useState(null);
+  const [searchedResults, setSearchedResults] = useState([])
 
   const handleSearchChange = (e) => {
     clearTimeout(searchTimeout);
@@ -22,33 +24,45 @@ const Home = () => {
 
     setSearchTimeout(
       setTimeout(() => {
-        const searchResult = posts.filter((item) => item.user.toLowerCase().includes(searchText.toLowerCase()) || item.prompt.toLowerCase().includes(searchText.toLowerCase()));
+        const searchResult = posts.filter((item) => 
+           item.user.toLowerCase().includes(searchText.toLowerCase()) //// textul user-ului sa fie mic 
+        || item.prompt.toLowerCase().includes(searchText.toLowerCase())); ////textul prompt-ului sa fie mic
         setSearchedResults(searchResult);
-      }, 500),
-    );
+        console.log(setSearchedResults(searchResult))
+       }, 500),
+     );
+
   };
 
-  useEffect(() => {
-    setLoading(true)
-    const getPost = () => {
-      getDocs(postRef)
-        .then(data => {
-          setPost(data.docs.map((docs) => ({ ...docs.data(), id: docs.id })));
-          setLoading(false)
-        })
+ useEffect(() => {
+  const getPost = async () => {
+    try {
+      const data = await getDocs(postRef);
+      setPost(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    } catch (err) {
+      console.log('Error ', err);
+    } finally {
+      setLoading(false);
     }
-    getPost()
-  }, [])
-  return (
+   };
+   getPost();
+ }, [postRef]);
+   return (
     <section>
+
       <div className="home-main-description">
         <div className="home-text-logo">
         <h1>Vitrina de imagini generate</h1>
         </div>
         <div className="home-prerequisite">
-        <p>Răsfoiți printr-o colecție de imagini imaginative și uimitoare din punct de vedere vizual generate de DALL-E AI</p>
+
+        <p>
+          Răsfoiți printr-o colecție de imagini imaginative și uimitoare din punct de vedere vizual generate de DALL-E AI
+        </p>
+
         </div>
       </div>
+
         <FormField
           labelName="Cautare imagini generate"
           type="text"
@@ -68,7 +82,7 @@ const Home = () => {
           <>
             {searchText && (
               <h2 className="search-text">
-                Showing Resuls for <span className="search-text-color">{searchText}</span>:
+                Showing Resuls for <span className="search-text-color">{searchText}</span> :
               </h2>
             )}
             <div className="grid-cards">
@@ -80,6 +94,7 @@ const Home = () => {
                 ))
               ) : (posts.map(post=>(
                 <DisplayPost
+                  key={post.id}
                   post={post}
                 />
                 ))
@@ -92,4 +107,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;

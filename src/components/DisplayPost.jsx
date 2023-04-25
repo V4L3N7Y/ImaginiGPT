@@ -6,20 +6,6 @@ import { useState, useEffect } from 'react';
 const DisplayPost = (props) => {
   const {logo, image, prompt, user} = props.post;
 
-  const [translatedText, setTranslatedText] = useState('');
-
-  async function translate(prompt) {
-    const translationResponse = await fetch(`https://api.mymemory.translated.net/get?q=${prompt}&langpair=en-GB|ro-RO`);
-    const translationData = await translationResponse.json();
-    const translatedText = translationData.responseData.translatedText;
-    setTranslatedText(translatedText);
-  }
-
-
- useEffect(() => {
-    translate(prompt);
-  }, [prompt]);
-
   return (
     <div className="card card-shadow">
       <img 
@@ -33,7 +19,7 @@ const DisplayPost = (props) => {
             <img className='logo-card' src={logo? logo: deflogo} alt={prompt} />
             <div>
               <span style={{color: "#888",fontSize: "12px", textTransform: "lowercase"}}>{user}</span>
-              <p style={{"fontSize": "14px"}}>{translatedText}</p>
+              <p style={{"fontSize": "14px"}}>{prompt}</p>
             </div>
           </div>
       </div>
