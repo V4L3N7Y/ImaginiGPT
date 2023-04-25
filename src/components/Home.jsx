@@ -41,12 +41,10 @@ const Home = () => {
   }, [])
   return (
     <section>
-      <div>
+      <div className="home-main-description">
         <h1>Vitrina de imagini generate</h1>
         <p>Răsfoiți printr-o colecție de imagini imaginative și uimitoare din punct de vedere vizual generate de DALL-E AI</p>
       </div>
-
-      <div className="form-field">
         <FormField
           labelName="Cautare imagini generate"
           type="text"
@@ -56,7 +54,6 @@ const Home = () => {
           value={searchText}
           handleChange={handleSearchChange}
         />
-      </div>
 
       <div className="container">
         {loading ? (

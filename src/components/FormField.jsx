@@ -11,13 +11,13 @@ const FormField = ({
   isSurpriseMe,
   handleSurpriseMe,
 }) => (
-  <div>
-    <div>
-      <label
+  <div className="form-field">
+    <div className="form-field-title">
+      {/* <label
         htmlFor={name}
       >
         {labelName}
-      </label>
+      </label> */}
       {isSurpriseMe && (
         <button
           type="button"
@@ -27,6 +27,7 @@ const FormField = ({
         </button>
       )}
     </div>
+    <div className="form-field-input">
     <input
       type={type}
       id={name}
@@ -36,6 +37,7 @@ const FormField = ({
       onChange={handleChange}
       required
     />
+    </div>
   </div>
 );
 
