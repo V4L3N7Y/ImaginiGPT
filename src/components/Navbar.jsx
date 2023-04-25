@@ -24,10 +24,12 @@ const Navbar = () => {
           Imagini<span>GPT</span>
         </a>
         <div className="header-right">
+          <div>
           <MdDarkMode className="darkmode-icon" />
+          </div>
 
           {user ? (
-            <>
+            <div className="user-logged">
               <img
                 src={user.photoURL}
                 className="user-photo"
@@ -35,23 +37,31 @@ const Navbar = () => {
               />
               <span className="user-name">{user.displayName}</span>
               <FiLogOut className="logout" onClick={logOut} />
-            </>
+              </div>
           ) : (
+            <div>
             <Link className="gap" to={"/login"}>
               Login
             </Link>
+            </div>
           )}
           {user && (
+            <div>
             <Link className="gap" to={"/generate"}>
               Generate
             </Link>
+            </div>
           )}
+          <div>
           <Link className="gap" to={"/home"}>
             Home
           </Link>
+          </div>
+          <div>
           <Link className="active" to={"/about"}>
             About
           </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ function Login() {
   };
 
   return (
-    <div className="container">
+    <div className="container-login">
       <div class="authentication-text">
       <h1>Autentificare</h1>
       </div>

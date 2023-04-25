@@ -9,6 +9,7 @@ input {
     width: 94%;
     font-family: Alegreya;
     font-weight: 550;
+    background-color: var(--foreground-color);
   }
   input:focus {
     outline:none;

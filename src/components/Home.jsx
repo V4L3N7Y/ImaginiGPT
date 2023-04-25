@@ -59,7 +59,7 @@ const Home = () => {
           handleChange={handleSearchChange}
         />
 
-      <div className="container">
+      <div className="container-home">
         {loading ? (
           <div className="loading">
             <Audio/>

@@ -16,6 +16,7 @@ const ImageGenerationForm = () => {
   const [prompt, setPrompt] = useState("");
   const [imageFile, setImageFile] = useState(null);
   const [failLoading, setFailLoading] = useState(false)
+  const [valueInput, setValueInput] = useState("")
 
   const [user] = useAuthState(Auth);
   const postRef = collection(db, "posts");
@@ -44,10 +45,11 @@ const ImageGenerationForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true);
-
     const input = event.target.elements.input.value;
-
+    setValueInput(input)
+    if(input !== ''){
+      setLoading(true);
+      
     // fetch api cu tare si pe dincolo
     const translationResponse = await fetch(
       `https://api.mymemory.translated.net/get?q=${input}&langpair=ro-RO|en-GB`
@@ -82,6 +84,7 @@ const ImageGenerationForm = () => {
     setOutput(URL.createObjectURL(blob));
     setImageFile(new File([blob], "art.png", { type: "image/png" }));
     setLoading(false);
+    }
   };
 
   const handleDownload = () => {
@@ -94,21 +97,21 @@ const ImageGenerationForm = () => {
   };
 
   return (
-    <div className="imageGPT container">
-      <div className="container">
+    <div className="imageGPT-container">
+      <div className="container-component-text">
         <h1>Încurajează-ți creativitatea!</h1>
         <p>
           Răsfoiți printr-o colecție de imagini imaginative și uimitoare din
           punct de vedere vizual generate de DALL-E AI
         </p>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-send-component">
         <input
           type="text"
           name="input"
           placeholder="Introduceti descrierea aici..."
         />
-        <button type="submit" className="button">
+        <button type="submit" className="button-send-component">
           Generate
         </button>
       </form>
@@ -137,10 +140,17 @@ const ImageGenerationForm = () => {
           </p>
         </div>
       )}
+      {valueInput == '' && (
+        <div className="fail-loading">
+          <p>
+           Introduceti cuvinte in bara de cautare.
+          </p>
+        </div>
+      )}
       {!loading && output && (
-        <div className="result-image">
+        <div className="result-image-component">
           <img src={output} alt="art" />
-          <div className="action">
+          <div className="actions-component">
             <button onClick={handleDownload}>
               <BiDownload />
             </button>

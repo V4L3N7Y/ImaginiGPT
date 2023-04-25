@@ -23,10 +23,6 @@
   font-weight: bold;
 }
 
-.header a.gap {
-  margin-right: 16px;
-}
-
 /* Change the background color on mouse-over */
 .header a:hover {
   background-color: rgba(201, 188, 188, 0.192);
@@ -43,6 +39,13 @@
 /* Float the link section to the right */
 .header-right {
   display:flex;
+
+}
+
+.header-right > div {
+  display: flex;
+  justify-content: center;
+  margin-right: 1rem;
 }
 
 .header span {
@@ -60,23 +63,32 @@
   text-align: center; 
 }
 
-.user-photo {
-  margin: 5px 10px 0px 0px;
-  font-size: 30px;
-  float: left;
-  color: white;
-  text-align: center;
-  width: 40px;
-  border-radius: 50%;
+.user-logged{
+  display: flex;
+  flex-direction: row;
 }
 
+.user-photo {
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  width: 49px;
+  height: 49px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
 .user-name {
-  margin: 15px 20px 0px 0px;
-  font-size: 10px;
-  float: left;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: .7rem;
   color: white;
   text-align: center;
   width: 40px;
+  margin-right: 1rem;
   
 }
 

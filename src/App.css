@@ -12,6 +12,7 @@ padding-right: 4px;
 padding-bottom: 8px;
 padding-left: 4px;
 width: 100%;
-background-color: #f9fafe;
+--foreground-color: #fefaf9;
+background-color: var(--foreground-color);
 min-height: calc(100vh - 73px);
 }

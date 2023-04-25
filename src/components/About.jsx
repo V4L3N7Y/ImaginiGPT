@@ -4,11 +4,15 @@ import '../style/About.css';
 
 function About() {
   return (
-    <div>
+    <div className="container-about">
+      <div className="title-about">
       <h1>Despre</h1>
+      <img src={inference} />
+      </div>
+
+      <div className="content-about">
         
         <p>Bun venit la aplicația noastră web care generează imagini utilizând un prompt text în limba română!
-            <img src={inference} />
            Cum funcționează aplicația noastră? Este foarte simplu: introduceți un prompt text în limba română și aplicația 
            noastră va utiliza un algoritm complex de învățare automată, disponibil prin intermediul API-ului Hugging Face, 
            pentru a genera o imagine relevantă pentru textul introdus. În doar câteva secunde, veți vedea o imagine nouă și 
@@ -25,6 +29,7 @@ function About() {
            Puteți alege dintr-o varietate de stiluri artistice și puteți regla parametrii 
            generatorului de imagini pentru a obține imagini cu aspect unic și personalizat.
         </p>
+    </div>
     </div>
   );
 }

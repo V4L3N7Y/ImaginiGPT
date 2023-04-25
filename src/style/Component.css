@@ -1,7 +1,69 @@
-
-
-.container {
+.imageGPT-container{
     display:grid;
     align-items: center;
     justify-content: center;
+    padding: 10px 10px;
+}
+
+.container-component-text {
+    display:grid;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+}
+.form-send-component {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.button-send-component{
+    margin-top: 15px;
+    background-color: white;
+    width: 20%;
+    height: 50px;
+    font-family: Alegreya;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 2px;
+}
+.button-send-component:hover {
+    background-color: rgba(33, 32, 32, 0.930);
+    border-color: rgb(33, 32, 32);
+    color: rgb(227, 215, 215);
+}
+.button-send-component:focus {
+    background-color: rgb(33, 32, 32);
+    border-color: rgb(33, 32, 32);
+    color: rgb(227, 215, 215);
+    border-radius: 2px;
+}
+.result-image-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 40px 0px 20px 0px;
+}
+
+.actions-component {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.actions-component button{
+    display: flex;
+    justify-content: center;
+    margin-left: 2px;
+    width: 60px;
+    height: 30px;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    border: 1.3px solid black;
+    font-weight: 700;
+    font-family: Alegreya;
+    border-radius: 2px;
 }

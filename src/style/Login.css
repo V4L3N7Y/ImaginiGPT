@@ -1,4 +1,4 @@
-.container {
+.container-login {
   align-items: center;
   display: grid;
   justify-content: center;
@@ -52,7 +52,7 @@ div.authentication-text h1 {
 
 .button-17:hover {
   background: #f6f9fe;
-  color: #174ea6;
+  color: #2c4265;
 }
 
 .button-17:active {
