@@ -1,20 +1,29 @@
 .container-about {
-display: flex;
-flex-direction: column;
-margin: 0px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
 }
-.container-about p {
-     margin: 0px;
-}
+
 .title-about {
     display: flex;
     align-items: center;
+    margin-left: 3rem;
 }
-.title-about img {
-    width: 20%;
-    height: 80%;
-    margin: 0px 0px 0px 5px;
+
+.inferenceText {
+    
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
+
+.inferenceText span {
+    opacity: 0.5;
+  }
 
 .content-about {
     display: flex;
@@ -22,5 +31,5 @@ margin: 0px;
     margin: 50px;
     padding: 20px;
     align-items: stretch;
-    border: 3px dotted black;
+    border: 3px dotted rgba(0, 0, 0, 0.429);
 }

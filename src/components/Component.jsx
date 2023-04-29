@@ -79,7 +79,7 @@ const ImageGenerationForm = () => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${API_TOKEN}`,
         },
-        body: JSON.stringify({ inputs: "man" }),
+        body: JSON.stringify({ inputs: translatedText }),
       }
     );
 
@@ -107,8 +107,10 @@ const ImageGenerationForm = () => {
     document.body.removeChild(link);
   };
 
+  
+
   return (
-    <div className="imageGPT-container">
+    <div className="generate-container">
       <div className="container-component-text">
         <h1>Încurajează-ți creativitatea!</h1>
         <p>
@@ -154,7 +156,7 @@ const ImageGenerationForm = () => {
       {valueInput == '' && (
         <div className="fail-loading">
           <p>
-           Introduceti cuvinte in bara de cautare.
+           Introduceti cuvinte in bara de cautare...
           </p>
         </div>
       )}

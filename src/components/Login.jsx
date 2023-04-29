@@ -21,7 +21,7 @@ function Login() {
       <div class="authentication-text">
       <h1>Autentificare</h1>
       </div>
-      <button onClick={signIn} class="button-17" role="button">
+      <button className="singin" onClick={signIn}  role="button">
         Sign In With Google
       </button>
     </div>

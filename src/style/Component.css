@@ -1,8 +1,13 @@
-.imageGPT-container{
+
+.generate-container{
     display:grid;
     align-items: center;
     justify-content: center;
     padding: 10px 10px;
+}
+
+.generate-container h1{
+    text-align: center;
 }
 
 .container-component-text {
@@ -17,9 +22,16 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-top: 3rem;
 }
+
+.form-send-component ::placeholder {
+   font-size: 15px;
+   font-family: 'Courier New', Courier, monospace;
+}
+
 .button-send-component{
-    margin-top: 15px;
+    margin-top: 3rem;
     background-color: white;
     width: 20%;
     height: 50px;
@@ -28,17 +40,20 @@
     font-size: 1.2rem;
     border-radius: 2px;
 }
+
 .button-send-component:hover {
     background-color: rgba(33, 32, 32, 0.930);
     border-color: rgb(33, 32, 32);
     color: rgb(227, 215, 215);
 }
+
 .button-send-component:focus {
     background-color: rgb(33, 32, 32);
     border-color: rgb(33, 32, 32);
     color: rgb(227, 215, 215);
     border-radius: 2px;
 }
+
 .result-image-component {
     display: flex;
     flex-direction: column;
@@ -66,4 +81,9 @@
     font-weight: 700;
     font-family: Alegreya;
     border-radius: 2px;
+}
+
+.fail-loading {
+    opacity: 0.5;
+    font-size: 1.2rem;
 }

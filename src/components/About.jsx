@@ -7,7 +7,9 @@ function About() {
     <div className="container-about">
       <div className="title-about">
       <h1>Despre</h1>
-      <img src={inference} />
+      <a class="inferenceText">
+        Inference<span>API</span>
+        </a>
       </div>
 
       <div className="content-about">
@@ -18,6 +20,8 @@ function About() {
            pentru a genera o imagine relevantă pentru textul introdus. În doar câteva secunde, veți vedea o imagine nouă și 
            fascinantă generată din prompt-ul dvs. text.
         </p>
+
+        
 
         <p>Suntem o echipă de dezvoltatori pasionați de inteligența artificială și de modul în 
            care poate fi utilizată pentru a crea imagini unice și interesante. 

@@ -1,13 +1,13 @@
 import React from 'react';
 import deflogo from "../logo.svg";
 import '../style/DisplayPost.css';
-import { useState, useEffect } from 'react';
+
 
 const DisplayPost = (props) => {
   const {logo, image, prompt, user} = props.post;
 
   return (
-    <div className="card card-shadow">
+    <div className="card">
       <img 
       className='img-cover' 
       src={image} 
@@ -28,4 +28,4 @@ const DisplayPost = (props) => {
   )
 }
 
-export default DisplayPost
+export default DisplayPost;

@@ -7,15 +7,25 @@ import { Auth } from "../firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-const Navbar = () => {
+const Navbar = ({ theme, toggleTheme }) => {
   const [user] = useAuthState(Auth);
   const navigator = useNavigate();
+  const [showMenu, setShowMenu] = useState(false);
+  const handleClick = () => {
+    setShowMenu(!showMenu);
+  };
 
   const logOut = async () => {
     await signOut(Auth);
     navigator("/");
   };
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
 
   return (
     <div>
@@ -23,11 +33,16 @@ const Navbar = () => {
         <a href="/" class="logo">
           Imagini<span>GPT</span>
         </a>
-        <div className="header-right">
+ 
+         
+         
+
+        <div className='header-right'>
           <div>
-          <MdDarkMode className="darkmode-icon" />
+          <MdDarkMode onClick={toggleTheme} className="darkmode-icon" />
           </div>
 
+          
           {user ? (
             <div className="user-logged">
               <img
@@ -62,6 +77,7 @@ const Navbar = () => {
             About
           </Link>
           </div>
+          
         </div>
       </div>
     </div>
