@@ -8,7 +8,9 @@ import { collection, addDoc } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "../style/Component.css";
 
-const API_TOKEN = "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"; ///nu stiu ce sa fac cu asta dar nu e necesar sa il ascund ca nu ma taxeaza.
+
+ 
+
 
 const ImageGenerationForm = () => {
   const [loading, setLoading] = useState(false);
@@ -21,6 +23,7 @@ const ImageGenerationForm = () => {
   const [user] = useAuthState(Auth);
   const postRef = collection(db, "posts");
 
+  const API_KEY = process.env.REACT_APP_API_KEY;
 
 
   const uploadImage = async () => {
@@ -77,7 +80,7 @@ const ImageGenerationForm = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${API_TOKEN}`,
+          Authorization: `Bearer ${API_KEY}`,
         },
         body: JSON.stringify({ inputs: translatedText }),
       }
