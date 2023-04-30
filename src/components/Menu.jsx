@@ -31,11 +31,7 @@ function Menu() {
     <ul class="menu__box">
             <li><a class="menu__item" href="home">Home</a></li>
 			<li><a class="menu__item" href="about">About</a></li>
-			<li><a class="menu__item" href="generate">Generate</a></li>
-			
 
-            
-          
           {user ? (
             <>
               <img
@@ -49,6 +45,11 @@ function Menu() {
           ) : (
             
             <li><a class="menu__item" href="login">Login</a></li>
+           
+          )}
+          {user && (
+            
+              <li><a class="menu__item" href="generate">Generate</a></li>
            
           )}
 			

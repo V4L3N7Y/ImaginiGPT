@@ -59,6 +59,7 @@
     transition-duration: .25s;
   }
   .menu__item {
+    cursor: pointer;
     display: block;
     padding: 12px 24px;
     color: #dadada;
