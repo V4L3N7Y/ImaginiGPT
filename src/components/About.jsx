@@ -1,5 +1,4 @@
 import React from "react";
-import inference from "../style/img_About/inferenceAPI.png";
 import '../style/About.css';
 
 function About() {
