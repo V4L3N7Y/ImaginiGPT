@@ -62,9 +62,9 @@ const Navbar = ({ theme, toggleTheme }) => {
           )}
           {user && (
             <div>
-            <Link className="gap" to={"/generate"}>
-              Generate
-            </Link>
+             <Link className="gap" to={"/generate"}>
+               Generate
+             </Link>
             </div>
           )}
           <div>

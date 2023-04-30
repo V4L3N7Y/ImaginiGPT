@@ -7,6 +7,8 @@ import { v4 } from "uuid";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "../style/Component.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
  
@@ -17,8 +19,11 @@ const ImageGenerationForm = () => {
   const [output, setOutput] = useState(null);
   const [prompt, setPrompt] = useState("");
   const [imageFile, setImageFile] = useState(null);
-  const [failLoading, setFailLoading] = useState(false)
-  const [valueInput, setValueInput] = useState("")
+  const [failLoading, setFailLoading] = useState(false);
+  const [valueInput, setValueInput] = useState("");
+ 
+  const notify = () => toast("Wow so easy !");
+ 
 
   const [user] = useAuthState(Auth);
   const postRef = collection(db, "posts");
@@ -54,6 +59,13 @@ const ImageGenerationForm = () => {
         .catch((err) => console.log(err));
     }
   };
+
+  
+  
+  const uploadAndNotify = async () => {
+     await uploadImage()
+     await notify()
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -171,7 +183,7 @@ const ImageGenerationForm = () => {
               <BiDownload />
             </button>
             {user && (
-              <button onClick={uploadImage}>
+              <button onClick={uploadAndNotify}>
                 <BiShare />
               </button>
             )}
