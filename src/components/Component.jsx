@@ -139,8 +139,7 @@ draggable
 pauseOnHover
 theme="dark"
 />
-{/* Same as */}
-<ToastContainer />
+
       <div className="container-component-text">
         <h1>Încurajează-ți creativitatea!</h1>
         <p>
