@@ -36,10 +36,11 @@ div.home-text-logo h1{
 }
 
 .search-text {
+  margin: auto;
   font-weight: 500;
   color: #666e75;
   font-size: 1.5rem; 
-  margin-bottom: 0.75rem;
+  margin-bottom: 2.75rem;
 }
 
 .search-text-color {

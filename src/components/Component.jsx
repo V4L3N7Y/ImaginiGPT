@@ -22,7 +22,6 @@ const ImageGenerationForm = () => {
   const [failLoading, setFailLoading] = useState(false);
   const [valueInput, setValueInput] = useState("");
  
-  const notify = () => toast("Wow so easy !");
  
 
   const [user] = useAuthState(Auth);
@@ -51,7 +50,7 @@ const ImageGenerationForm = () => {
                 user: user.displayName,
                 logo: user.photoURL,
               })
-                .then((res) => alert("posted"))
+                .then((res) => <ToastContainer />)
                 .catch((err) => console.log(err));
             }
           });
@@ -63,9 +62,13 @@ const ImageGenerationForm = () => {
   
   
   const uploadAndNotify = async () => {
-     await uploadImage()
-     await notify()
-  }
+    try {
+      await uploadImage();
+      toast.success('Image uploaded successfully');
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -168,7 +171,7 @@ const ImageGenerationForm = () => {
           </p>
         </div>
       )}
-      {valueInput == '' && (
+      {valueInput === '' && (
         <div className="fail-loading">
           <p>
            Introduceti cuvinte in bara de cautare...

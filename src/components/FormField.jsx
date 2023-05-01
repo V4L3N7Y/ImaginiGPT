@@ -2,31 +2,13 @@ import React from 'react';
 import '../style/FormField.css';
 
 const FormField = ({
-  //labelName,
   type,
   name,
   placeholder,
   value,
-  handleChange,
-  isSurpriseMe,
-  handleSurpriseMe,
+  onKeyDown,
 }) => (
   <div className="form-field">
-    <div className="form-field-title">
-      {/* <label
-        htmlFor={name}
-      >
-        {labelName}
-      </label> */}
-      {isSurpriseMe && (
-        <button
-          type="button"
-          onClick={handleSurpriseMe}
-        >
-          Surprise me
-        </button>
-      )}
-    </div>
     <div className="form-field-input">
     <input
       type={type}
@@ -34,7 +16,7 @@ const FormField = ({
       name={name}
       placeholder={placeholder}
       value={value}
-      onChange={handleChange}
+      onChange={onKeyDown}
       required
     />
     </div>

@@ -14,25 +14,27 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const postRef = collection(db, "posts")
 
+ 
   const [searchText, setSearchText] = useState('');
-  const [searchTimeout, setSearchTimeout] = useState(null);
   const [searchedResults, setSearchedResults] = useState([])
 
   const handleSearchChange = (e) => {
-    clearTimeout(searchTimeout);
+    
     setSearchText(e.target.value);
+    console.log(e.target.value); 
+  
 
-    setSearchTimeout(
-      setTimeout(() => {
-        const searchResult = posts.filter((item) => 
-           item.user.toLowerCase().includes(searchText.toLowerCase()) //// textul user-ului sa fie mic 
-        || item.prompt.toLowerCase().includes(searchText.toLowerCase())); ////textul prompt-ului sa fie mic
-        setSearchedResults(searchResult);
-        console.log(setSearchedResults(searchResult))
-       }, 500),
-     );
+    if(searchText !== " " && searchText !== null){
+           const searchResult = posts.filter((item) => 
+               item.user.toLowerCase().includes(searchText.toLowerCase())
+            || item.prompt.toLowerCase().includes(searchText.toLowerCase()));
+            setSearchedResults(searchResult)
+            console.log(searchText)
+         } if(searchText == " ") {
+            console.log(searchText)
+         }  
 
-  };
+}
 
  useEffect(() => {
   const getPost = async () => {
@@ -43,16 +45,19 @@ const Home = () => {
       console.log('Error ', err);
     } finally {
       setLoading(false);
+      console.log("amogus")
+      console.log('return of the amogus2')
     }
    };
    getPost();
- }, [postRef]);
+  }, []);
+
+
    return (
     <section>
-
       <div className="home-main-description">
         <div className="home-text-logo">
-        <h1>Vitrina de imagini generate</h1>
+         <h1>Vitrina de imagini generate</h1>
         </div>
         <div className="home-prerequisite">
 
@@ -70,8 +75,9 @@ const Home = () => {
           placeholder="Cauta..."
           className="form-field-input"
           value={searchText}
-          handleChange={handleSearchChange}
+          onKeyDown={handleSearchChange}
         />
+    
 
       <div className="container-home">
         {loading ? (
@@ -89,6 +95,7 @@ const Home = () => {
               {searchText && searchedResults ? (
                 searchedResults.map(post=>(
                 <DisplayPost
+                  key={post.id}
                   post={post}
                 />
                 ))
@@ -105,6 +112,6 @@ const Home = () => {
       </div>
     </section>
   )
-}
+              }
 
 export default Home;
