@@ -7,8 +7,9 @@ import { v4 } from "uuid";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "../style/Component.css";
-import { ToastContainer, toast } from 'react-toastify';
+import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 
  
@@ -28,6 +29,7 @@ const ImageGenerationForm = () => {
   const postRef = collection(db, "posts");
 
   const API_KEY = process.env.REACT_APP_API_KEY;
+
 
 
   const uploadImage = async () => {
@@ -50,8 +52,13 @@ const ImageGenerationForm = () => {
                 user: user.displayName,
                 logo: user.photoURL,
               })
-                .then((res) => <ToastContainer />)
-                .catch((err) => console.log(err));
+              .then((res) => {
+                toast.success("Image uploaded successfully!");
+              })
+              .catch((err) => {
+                console.log(err);
+                toast.error("Error uploading image");
+              });
             }
           });
         })
@@ -60,15 +67,6 @@ const ImageGenerationForm = () => {
   };
 
   
-  
-  const uploadAndNotify = async () => {
-    try {
-      await uploadImage();
-      toast.success('Image uploaded successfully');
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -129,6 +127,20 @@ const ImageGenerationForm = () => {
 
   return (
     <div className="generate-container">
+       <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="dark"
+/>
+{/* Same as */}
+<ToastContainer />
       <div className="container-component-text">
         <h1>Încurajează-ți creativitatea!</h1>
         <p>
@@ -186,7 +198,7 @@ const ImageGenerationForm = () => {
               <BiDownload />
             </button>
             {user && (
-              <button onClick={uploadAndNotify}>
+              <button onClick={uploadImage}>
                 <BiShare />
               </button>
             )}
