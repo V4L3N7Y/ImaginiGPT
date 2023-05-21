@@ -14,17 +14,15 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const postRef = collection(db, "posts")
 
- 
   const [searchText, setSearchText] = useState('');
   const [searchedResults, setSearchedResults] = useState([])
 
   const handleSearchChange = (e) => {
     
-    setSearchText(e.target.value);
-    console.log(e.target.value); 
-  
+   setSearchText(e.target.value);
+   console.log(e.target.value);   
 
-    if(searchText !== " " && searchText !== null){
+    if(searchText !== " " && searchText !== null) {
            const searchResult = posts.filter((item) => 
                item.user.toLowerCase().includes(searchText.toLowerCase())
             || item.prompt.toLowerCase().includes(searchText.toLowerCase()));
@@ -34,7 +32,7 @@ const Home = () => {
             console.log(searchText)
          }  
 
-}
+  }
 
  useEffect(() => {
   const getPost = async () => {
@@ -47,10 +45,10 @@ const Home = () => {
       setLoading(false);
       console.log("amogus")
       console.log('return of the amogus2')
-    }
-   };
-   getPost();
-  }, []);
+     }
+    };
+    getPost();
+   }, []);
 
 
    return (
