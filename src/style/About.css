@@ -9,6 +9,11 @@
     align-items: center;
     margin-left: 3rem;
 }
+.title-contactus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .inferenceText {
     
@@ -33,3 +38,53 @@
     align-items: stretch;
     border: 3px dotted #0000006d;
 }
+
+.container-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.label-input-name {
+    margin-bottom: 5rem;
+}
+
+.label-input-email {
+    margin-bottom: 5rem;
+}
+
+.label-textarea label {
+    display: flex;
+    margin-bottom: 3rem;
+}
+
+textarea {
+    border: none;
+    width: 80vw;
+    height: 30vh;
+}
+
+.submit-btn{
+    margin: 50px 30%;
+    background-color: white;
+    width: 30vw;
+    height: 50px;
+    font-family: Alegreya;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 2px;
+  }
+  
+  .submit-btn:hover {
+    background-color: rgba(33, 32, 32, 0.930);
+    border-color: rgb(33, 32, 32);
+    color: rgb(227, 215, 215);
+  }
+  
+  .submit-btn:focus {
+    background-color: rgb(33, 32, 32);
+    border-color: rgb(33, 32, 32);
+    color: rgb(227, 215, 215);
+    border-radius: 2px;
+  }
