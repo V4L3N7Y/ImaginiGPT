@@ -60,7 +60,7 @@ function About() {
     
     <form onSubmit={handleSubmit}>
       <div className="label-input-name">
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="name">Nume:</label>
         <input
           type="text"
           id="name"
@@ -71,7 +71,7 @@ function About() {
         />
       </div>
       <div className="label-input-email">
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">E-mail:</label>
         <input
           type="email"
           id="email"
@@ -82,7 +82,7 @@ function About() {
         />
       </div>
       <div className="label-textarea">
-        <label htmlFor="message">Message:</label>
+        <label htmlFor="message">Mesaj:</label>
         <textarea
           id="message"
           name="message"
@@ -91,7 +91,7 @@ function About() {
           required
         ></textarea>
       </div>
-      <button className="submit-btn" type="submit">Submit</button>
+      <button className="submit-btn" type="submit">Trimite</button>
      </form>
     </div> 
 

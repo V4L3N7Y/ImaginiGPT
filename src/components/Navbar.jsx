@@ -63,18 +63,18 @@ const Navbar = ({ theme, toggleTheme }) => {
           {user && (
             <div>
              <Link className="gap" to={"/generate"}>
-               Generate
+               Genereaza
              </Link>
             </div>
           )}
           <div>
           <Link className="gap" to={"/home"}>
-            Home
+            Acasa
           </Link>
           </div>
           <div>
           <Link className="active" to={"/about"}>
-            About
+            Despre
           </Link>
           </div>
           

@@ -22,7 +22,7 @@ function Login() {
       <h1>Autentificare</h1>
       </div>
       <button className="singin" onClick={signIn}  role="button">
-        Sign In With Google
+      Conectați-vă cu Google
       </button>
     </div>
   );
