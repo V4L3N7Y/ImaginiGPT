@@ -30,7 +30,8 @@ function About() {
         </a>
     </div>
 
-    <div className="content-about">        
+    <div className="content-about">  
+
         <p>Bun venit la aplicația noastră web care generează imagini utilizând un prompt text în limba română!
            Cum funcționează aplicația noastră? Este foarte simplu: introduceți un prompt text în limba română și aplicația 
            noastră va utiliza un algoritm complex de învățare automată, disponibil prin intermediul API-ului Hugging Face, 
@@ -48,6 +49,7 @@ function About() {
            Puteți alege dintr-o varietate de stiluri artistice și puteți regla parametrii 
            generatorului de imagini pentru a obține imagini cu aspect unic și personalizat.
         </p>
+        
     </div>
 
     
@@ -59,6 +61,7 @@ function About() {
   <div className="container-form">
     
     <form onSubmit={handleSubmit}>
+
       <div className="label-input-name">
         <label htmlFor="name">Nume:</label>
         <input
@@ -70,6 +73,7 @@ function About() {
           required
         />
       </div>
+
       <div className="label-input-email">
         <label htmlFor="email">E-mail:</label>
         <input
@@ -81,7 +85,8 @@ function About() {
           required
         />
       </div>
-      <div className="label-textarea">
+
+    <div className="label-textarea">
         <label htmlFor="message">Mesaj:</label>
         <textarea
           id="message"

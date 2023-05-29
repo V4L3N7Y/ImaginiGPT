@@ -19,11 +19,11 @@ function Login() {
   return (
     <div className="container-login">
       <div class="authentication-text">
-      <h1>Autentificare</h1>
-      </div>
-      <button className="singin" onClick={signIn}  role="button">
-      Conectați-vă cu Google
-      </button>
+       <h1>Autentificare</h1>
+        </div>
+         <button className="singin" onClick={signIn}  role="button">
+           Conectați-vă cu Google
+          </button>
     </div>
   );
 }
